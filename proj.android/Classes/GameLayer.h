@@ -35,4 +35,7 @@ public:
 	Hero *_hero;
 	CC_SYNTHESIZE(HudLayer*, _hud, Hud);
 	CC_SYNTHESIZE_RETAIN(cocos2d::CCArray*, _robots, Robots);
+
+	// a selector callback 关闭按钮
+	void menuCloseCallback(CCObject* pSender);
 };

@@ -8,7 +8,7 @@
 
 // 2 - convenience functions
 #ifndef UINT64_C
-#define UINT64_C(val) val##ui64
+#define UINT64_C(val) val##ull
 #endif
 #define random_range(low, high) (rand() % (high - low + 1)) + low
 #define frandom (float)rand() / UINT64_C(0x100000000)

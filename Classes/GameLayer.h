@@ -19,7 +19,8 @@ public:
 	virtual void didChangeDirectionTo(SimpleDPad *simpleDPad, cocos2d::CCPoint direction);
 	virtual void isHoldingDirection(SimpleDPad *simpleDPad, cocos2d::CCPoint direction);
 	virtual void simpleDPadTouchEnded(SimpleDPad *simpleDPad);
-
+// a selector callback 关闭按钮
+    void menuCloseCallback(CCObject* pSender);
 	cocos2d::CCTMXTiledMap *_tileMap;
 	cocos2d::CCSpriteBatchNode *_actors;
 	Hero *_hero;

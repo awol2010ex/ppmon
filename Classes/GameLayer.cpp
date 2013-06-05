@@ -19,6 +19,29 @@ bool GameLayer::init()
 		CC_BREAK_IF(!CCLayer::init());
 
 		this->setTouchEnabled(true);
+		
+		
+		
+		 /////////////////////////////
+    // 2. add a menu item with "X" image, which is clicked to quit the program
+    //    you may modify it.
+
+	//关闭按钮
+    // add a "close" icon to exit the progress. it's an autorelease object
+    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+                                        "CloseNormal.png",
+                                        "CloseSelected.png",
+                                        this,
+                                        menu_selector(GameLayer::menuCloseCallback) );
+    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
+
+    // create menu, it's an autorelease object
+    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
+    pMenu->setPosition( CCPointZero );
+    this->addChild(pMenu, 1);
+		
+		
+		
 
 		CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("pd_sprites.plist");
 		_actors = CCSpriteBatchNode::create("pd_sprites.pvr.ccz");
@@ -73,4 +96,13 @@ void GameLayer::isHoldingDirection(SimpleDPad *simpleDPad, CCPoint direction)
 void GameLayer::simpleDPadTouchEnded(SimpleDPad *simpleDPad)
 {
 
+}
+//关闭按钮
+void GameLayer::menuCloseCallback(CCObject* pSender)
+{
+    CCDirector::sharedDirector()->end();
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    exit(0);
+#endif
 }
